@@ -1,0 +1,34 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+#export PS1='[\u@\h \W]\$ '
+export PS1="\[\e[32m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[36m\]\w\[\e[m\] "
+#aliases
+#{{{ config aliases
+#configs
+alias editi3='vim ~/.config/i3/config'
+alias eci='vim ~/.config/themer/templates/i3/i3.tpl'
+alias ecx='vim ~/.config/themer/templates/i3/Xdefaults.tpl'
+alias ect='vim ~/.config/themer/templates/i3/config.yaml'
+alias eb='vim ~/.bashrc'
+alias ep='vim ~/.config/themer/templates/i3/polybar.tpl'
+#}}}
+#command abbreviations{{{
+#ls
+alias ll='ls -l'
+alias la='ls -a'
+alias ls='ls --color=auto'
+#
+#/*}}}*/
+
+#some commands/*{{{*/
+alias wdown='sudo ip link set wlp3s0 down'
+#/*}}}*/
+
+#variables
+export RANGER_LOAD_DEFAULT_RC=FALSE
+# vim: foldmethod=marker

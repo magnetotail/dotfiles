@@ -1,0 +1,31 @@
+variables:
+  primary: magenta
+  secondary: green
+  tertiary: red
+  special: yellow
+  transparency: 75
+#Polybar fonts, value after ';' is vertical offset
+  fontpoly: "DejaVuSans"
+  fontsizepoly: "10;3"
+  fontfoo: "DroidSansMono"
+  font: "foo"
+plugins:
+  parsers:
+    - themer.parsers.SweylaColorParser
+    - themer.parsers.WallhavenColorParser
+    - themer.parsers.KmeansColorParser
+    - themer.parsers.CachedColorParser
+    - themer.parsers.unsplash.UnsplashColorParser
+  # - themer.parsers.vim.VimColorParser
+    - themer.ColorParser
+  activators:
+    - themer.activators.wallfix.WallfixActivator
+    - themer.activators.i3.I3Activator
+    - polyactivator.PolyActivator
+    - xresactivator.XresActivator
+    - terminalactivator.TerminalActivator
+files:
+  Xdefaults.tpl: Xdefaults
+  index.tpl: index.html
+  i3.tpl: i3.conf
+  polybar.tpl: polybar.conf
