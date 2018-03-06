@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 pkill polybar
 pkill dunst
 sleep 0.5
