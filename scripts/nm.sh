@@ -1,22 +1,33 @@
 #!/bin/bash
 wpa_cli scan
-sleep 10
+sleep 2
 networks=$(wpa_cli scan_results | tail -n+3 | awk -F '\t' '{print $(NF)}')
-profiles=$(ls -p /etc/netctl | grep -v "/")
+declare -A profiles
+profiles=
 counter=0
-ssids=""
-for profile in $profiles
+for profile in $(ls -p  /etc/netctl | grep -v "/")
 do
-##		echo "$profile"
-		ssids="$ssids" $(cat /etc/netctl/"$profile" | grep ESSID | awk -F "'" '{print $(NF-1)}')
-	counter=`expr $counter + 1`
+	while IFS= read -r line
+	do
+		if [[ `expr match "$line" "ESSID=*"` -gt 0 ]]; then
+			ssid=$(echo "$line" | awk -F '=' '{print $2}' | sed "s/'//g")
+			profiles["$profile"]="$ssid"
+			#ssids[counter]=$ssid
+			#counter=`expr $counter + 1`
+		fi
+	done <"/etc/netctl/$profile"	
 done
-for ssid in "$ssids"
+
+for profile in "${!profiles[@]}"
 do
-	echo "$ssid"
+	for network in ${networks[@]}
+	do
+		if [[ "${profiles[$profile]}" = "$network" ]]; then
+			echo "Matching: $ssid, ${profiles[$profile]}, $network"
+			netctl switch-to $profile
+			exit
+		fi
+	done
 done
-#for network in "$networks"
-#do
-##		echo network
-#done
 	
+netctl stop-all
