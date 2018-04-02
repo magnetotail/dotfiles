@@ -211,3 +211,5 @@ venv.bak/
 
 # End of https://www.gitignore.io/api/python,pycharm,intellij
 
+
+orange/configs/themer/i3/plugins/__init__\.py

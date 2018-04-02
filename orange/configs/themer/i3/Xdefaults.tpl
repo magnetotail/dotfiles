@@ -1,4 +1,4 @@
-*font: xft:DejaVuSansMono:size=10
+*font: xft:FiraMono:size=10
 
 URxvt*.background: {% if transparency %}[{{ transparency }}]{% endif %}{{ black }}
 URxvt*.foreground: {{ white }}
@@ -38,7 +38,7 @@ URxvt.iso14755: off
 !rofi configuration
 rofi.lines: 		6
 rofi.show: 		run
-rofi.font:mono 12
+rofi.font:FiraMono 12
 !State:				background	foreground	bgaltrow	fgselected	bgselected
 rofi.color-normal:	#00000000,	#eb4422,	#00000000,	#973108,	#000000
 rofi.color-urgent:	#101010,	#eb4422,	#00000000,	#90973108,	#4a4a4a

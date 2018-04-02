@@ -21,7 +21,7 @@ plugins:
   activators:
     - themer.activators.wallfix.WallfixActivator
     - themer.activators.i3.I3Activator
-    - polyactivator.PolyActivator
+    - uirestarter.UIRestarter
     - xresactivator.XresActivator
     - terminalactivator.TerminalActivator
 files:
@@ -29,3 +29,5 @@ files:
   index.tpl: index.html
   i3.tpl: i3.conf
   polybar.tpl: polybar.conf
+  dunstrc.tpl: dunstrc
+

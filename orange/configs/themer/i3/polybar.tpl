@@ -22,17 +22,17 @@ color12 = {{ alt_cyan }}
 color13 = {{ alt_white }}
 
 [fonts]
-fontmain = "DejaVuSansMono""
-fontsizemain = "10;3"
+fontmain = "xft:FiraMono:size=12"
+fontsizemain = "12;3"
 fonticon = "FontAwesome"
-fontsizeicon = "10;3"
+fontsizeicon = "6;3"
 
 [bar/main]
-bottom = false 
+bottom = false
 fixed-center = true
 monitor = LVDS-1
 width = 100%
-height = 18
+height = 12
 radius = 0.0
 module-margin = 0
 padding-left = 1
@@ -42,8 +42,8 @@ line-size = 2
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-font-0 = DejaVuSansMono:size=10;3
-font-1 = FontAwesome:size=10;3
+font-0 = FiraMono:size=8;2
+font-1 = FontAwesome:size=9;3
 
 modules-left = i3 updates bat
 modules-center = cpu date memory
@@ -78,7 +78,7 @@ type = internal/i3
 ws-icon-0 = 1;
 ws-icon-1 = 2;dev
 ws-icon-2 = 3;
-ws-icon-3 = 4;
+ws-icon-3 = 4;
 ws-icon-4 = 5;
 ws-icon-5 = 6;5
 ws-icon-6 = 7;6
@@ -261,7 +261,7 @@ animation-packetloss-framerate = 500
 [module/pavolume]
 type = custom/script
 interval = 1
-label = %output%
+label = %output:0:4%
 exec = ~/.config/scripts/pavolume.sh
 click-right = exec pavucontrol
 click-left = ~/.config/scripts/pavolume.sh --togmute
@@ -320,7 +320,7 @@ type = custom/script
 exec = /home/selphie/.config/scripts/updatenum.sh
 interval = 600
 
-label = " %output%"
+label = " %output:0:5%"
 label-foreground = ${colors.background}
 label-background = ${colors.color10}
 label-padding = 1

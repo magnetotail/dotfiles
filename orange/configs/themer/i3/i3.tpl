@@ -44,13 +44,17 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec urxvtc
-
+bindsym $mod+p exec light-locker-command -l
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 #bind rofi to mod + d
 #bindsym $mod+d exec dmenu_run
 bindsym $mod+d exec rofi -show run
+
+bindsym $mod+plus exec ~/.dotfiles/scripts/terminalFontSize.sh +
+bindsym $mod+minus exec ~/.dotfiles/scripts/terminalFontSize.sh -
+bindsym $mod+Shift+plus exec ~/.dotfiles/scripts/terminalFontSize.sh 0
 
 bindsym F1 nop
 
@@ -220,13 +224,14 @@ mode "MusicControl" {
 }
 
 #init programs
-exec xrandr --output LVDS-1 --scale 1.171303x1.171303 --panning 1600x900
+#exec xrandr --output LVDS-1 --scale 1.171303x1.171303 --panning 1600x900
 exec --no-startup-id compton
 #
 exec --no-startup-id urxvtd
 exec_always feh --bg-fill ~/.config/themer/current/wallpaper.{png,jpg}
 exec polybar main
 exec --no-startup-id redshift
-#exec --no-startup-id light-locker --lock-on-suspend
 # vim: foldmethod=marker
-exec xset -dpms s off
+exec xset +dpms s 600
+exec syncthing -no-browser
+for_window [title="File Operation Progress"] floating enable
