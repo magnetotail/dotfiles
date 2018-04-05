@@ -1,0 +1,7 @@
+rm ~/.config/i3/config
+ln -s ~/.config/themer/current/i3tv.conf ~/.config/i3/config
+i3-msg -q restart
+sleep 0.4
+xrandr --output DVI-I-2 --off --output DVI-I-3 --right-of HDMI-0 --auto
+feh --bg-fill ~/.config/themer/current/wallpaper.{jpg,png}
+xset -dpms s off
